@@ -102,19 +102,19 @@ Task 3: Payment Form Creation:
 
 File route: index.html, pages/confirmation.html
 
-1. For the card form I used the <form> tag. Inside a form, I added a novalidate attribute, which allows us to implement custom validation and error handling. 
+- For the card form I used the <form> tag. Inside a form, I added a novalidate attribute, which allows us to implement custom validation and error handling. 
 
-2. Each input I wrapped in a <div> with a <form-group> class. 
+- Each input I wrapped in a <div> with a <form-group> class. 
 
-3. I used labels for accessibility for each input. I also used for attribute in a label which matches the ID of the particular input.
+- I used labels for accessibility for each input. I also used for attribute in a label which matches the ID of the particular input.
 
-4. For credit card expiration dates I used <select> elements which made the interface more user-friendly and also helped when developing validation, making the validation date function less complex. 
+- For credit card expiration dates I used <select> elements which made the interface more user-friendly and also helped when developing validation, making the validation date function less complex. 
 
-5. For the button I used type="submit", which triggers my submit event in the JavaScript file. 
+- For the button I used type "submit", which triggers my submit event in the JavaScript file. 
 
-6. For CVV input I used type="password" which provided security for the pin.
+- For CVV input I used type "password" which provided security for the pin.
 
-7. I add an Iframe to show a confirmation alert window to the user after successfully submitting a form.
+- I add an Iframe to show a confirmation alert window to the user after successfully submitting a form.
 
 
 Task 4: CSS Styling:
