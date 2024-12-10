@@ -1,9 +1,9 @@
-To run  project please follow this steps: 
+## To run  project please follow this steps: 
 
 - Install json-server: npm i -g json-server
 - Start the server: json-server --watch db.json --static ./ --port 3000
 
-Task 1: Network Debugging:
+## Task 1: Network Debugging:
 
 When testing my credit card form, I encountered an issue with form submission. After validating the inputs, I wanted to store the data locally for testing purposes and send a cross-window message to confirm successful submission. However, when submitting the form, the user data would briefly appear in the network traffic and console but then disappear. 
 
@@ -26,7 +26,7 @@ It took me some time to identify the issue in my code, but here is my solution:
 - I updated the service configurations and ensured that front-end and back-end origins matched. I made a JSON server to serve the front-end on http://localhost:3000/. I restarted my server and resubmitted my form and it worked.
 
 
-Task 2: Form Validation (JavaScript):
+## Task 2: Form Validation (JavaScript):
 
 To ensure data integrity and security when handling payment details, I used the following steps: 
 
@@ -63,7 +63,7 @@ CVV Validation:
 - By using Iframe send cross-window messaging, which activates an alert window with an acknowledgment message. Can be found: modules/main.js, modules/confirmation.js. 
 
 
-Thought Process: 
+## Thought Process: 
 
 When I was implementing my logic, I was thinking about the validation I would expect to see when filling out card information. For example, inputs cannot be empty, so I needed to create an error handler to prevent empty inputs and notify the user. I also wanted to implement custom validation and include the best coding practices. For every input, I created a validation function and wrapped my input value with it. During my research, I found that for credit card validation, I could use the Luhn Algorithm to determine if the credit card number was valid. In my functions, I tried to use the best ES6 practices, such as map, reduce, and destructuring, to make my code DRY, easy to read, and follow standards.
 
@@ -98,7 +98,7 @@ I created the iframe in the main HTML file and designed a new confirmation.html 
 That was my thought process!
 
 
-Task 3: Payment Form Creation:
+## Task 3: Payment Form Creation:
 
 File route: index.html, pages/confirmation.html
 
@@ -118,7 +118,7 @@ File route: index.html, pages/confirmation.html
 
 
 
-Task 4: CSS Styling:
+## Task 4: CSS Styling:
 
 File route: styles/main.css
 
@@ -138,7 +138,7 @@ I am a CIBC client, so I used the main colours of the company I trust.
 
 
 
-Task 5: Linux:
+## Task 5: Linux:
 
 To change permission on a file, I will use the chmod command - chmod permissions filename. 
 
