@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Credit Card Submission Form</title>
+  </head>
+  <body>
+    <div class="card-wrapper">
+      <div class="card-image">
+        <div class="card-image-group">
+          <p class="card-info">Advantage Debit Card</p>
+          <img
+            class="logo-img"
+            src="./assets/cibc-logo.png"
+            alt="CIBC Bank Logo"
+          />
+        </div>
+        <div class="card-image-group">
+          <img class="chip-img" src="./assets/chip-icon.png" alt="Card Chip" />
+          <img
+            class="contacless-img"
+            src="./assets/contactless-icon.png"
+            alt="Contactless Payment Icon"
+          />
+        </div>
+        <div class="card-image-group">
+          <p class="card-info card-holder-display"></p>
+          <img
+            class="visa-img"
+            src="./assets/visa-icon.png"
+            alt="Visa Card Logo"
+          />
+        </div>
+      </div>
+      <form class="card-form" novalidate>
+        <div class="form-group">
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" name="cardNumber" required />
+        </div>
+        <div class="form-group">
+          <label for="card-holder">Card Holder</label>
+          <input type="text" id="card-holder" name="cardHolder" required />
+        </div>
+        <div class="form-group expiration-cvv-group">
+          <div class="expiration-group">
+            <label for="expiration-month">Expiration Date</label>
+            <div class="dropdown-container">
+              <select
+                id="expiration-month"
+                name="expirationMonth"
+                aria-label="Expiration Month"
+                required
+              >
+                <option value="" disabled selected>Month</option>
+              </select>
+              <select
+                id="expiration-year"
+                name="expirationYear"
+                aria-label="Expiration Year"
+                required
+              >
+                <option value="" disabled selected>Year</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+              </select>
+            </div>
+          </div>
+          <div class="cvv-group">
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" name="cvv" required />
+          </div>
+        </div>
+        <button class="styled-button" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="iframe-container">
+      <iframe
+        src="./pages/confirmation.html"
+        id="iframe"
+        title="Payment Confirmation"
+        tabindex="0"
+      ></iframe>
+    </div>
+    <script type="module" src="./modules/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "cards": [
+    {
+      "id": "9544",
+      "cardNumber": "340161379321002",
+      "cardHolder": "Evgeniia Sindiukova",
+      "expirationMonth": "12",
+      "expirationYear": "2029"
+    },
+    {
+      "id": "2001",
+      "cardNumber": "374245455400126",
+      "cardHolder": "Evgeniia Sindiukova",
+      "expirationMonth": "08",
+      "expirationYear": "2027"
+    }
+  ]
+}
