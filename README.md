@@ -1,7 +1,7 @@
 To run  project please follow this steps: 
 
-1. Install json-server: npm i -g json-server
-2. Start the server: json-server --watch db.json --static ./ --port 3000
+- Install json-server: npm i -g json-server
+- Start the server: json-server --watch db.json --static ./ --port 3000
 
 Task 1: Network Debugging:
 
@@ -9,28 +9,28 @@ When testing my credit card form, I encountered an issue with form submission. A
 
 It took me some time to identify the issue in my code, but here is my solution:
 
-1. I opened the browser Developer Tools. When testing in a browser or debugging, I prefer Firefox over Chrome. I checked the Console tab for any errors but found none, which made the issue more challenging to debug. I navigated to the Network tab to see HTTP requests. 
+- I opened the browser Developer Tools. When testing in a browser or debugging, I prefer Firefox over Chrome. I checked the Console tab for any errors but found none, which made the issue more challenging to debug. I navigated to the Network tab to see HTTP requests. 
 
-2. I submitted the form and looked into my requests. I was specifically looking at the request related to the /cards endpoint, so I filtered the logs to only show me this endpoint. The request returned a 201 status code, which made sense because my API was configured to handle POST requests. My fetch call was working, but I still didn't get my data, and my iframe didn't appear.
+- I submitted the form and looked into my requests. I was specifically looking at the request related to the /cards endpoint, so I filtered the logs to only show me this endpoint. The request returned a 201 status code, which made sense because my API was configured to handle POST requests. My fetch call was working, but I still didn't get my data, and my iframe didn't appear.
 
-3. I selected a specific POST request and reviewed its details. I saw that the promise was fulfilled, and I got a response from the server. The request originated from http://127.0.0.1:5500, which was set up for my front-end.
+- I selected a specific POST request and reviewed its details. I saw that the promise was fulfilled, and I got a response from the server. The request originated from http://127.0.0.1:5500, which was set up for my front-end.
 
-4. Next, I opened the Sources tab and located the files handling submission logic (main.js) and API (api.js). I set a few breakpoints on the fetch function to pause execution during the submission. I placed breakpoints on a submission function as well. Breakpoints also showed that my promise was fullfilled and the data was sent.
+- Next, I opened the Sources tab and located the files handling submission logic (main.js) and API (api.js). I set a few breakpoints on the fetch function to pause execution during the submission. I placed breakpoints on a submission function as well. Breakpoints also showed that my promise was fullfilled and the data was sent.
 
-5. I switched to the Console and saw a brief message: Error sending data: Network error when attempting to fetch resource.
+- I switched to the Console and saw a brief message: Error sending data: Network error when attempting to fetch resource.
 
-6. I tried to make sure that my logic worked properly by investigating potential conflicts. At first, I thought, that e.prevenDafault() might conflict with async/await calls, I tried to use a different method than/catch for handling promises, but the issue persisted. 
+- I tried to make sure that my logic worked properly by investigating potential conflicts. At first, I thought, that e.prevenDafault() might conflict with async/await calls, I tried to use a different method than/catch for handling promises, but the issue persisted. 
 
-7. I revisited my networking tab and checked headers more carefully. I looked at my request more carefully and realized that it was coming from http://127.0.0.1:5500/, but my server was hosted at http://localhost:3000/. So the error was related to CORS, preventing the browser from allowing the request to succeed. 
+- I revisited my networking tab and checked headers more carefully. I looked at my request more carefully and realized that it was coming from http://127.0.0.1:5500/, but my server was hosted at http://localhost:3000/. So the error was related to CORS, preventing the browser from allowing the request to succeed. 
 
-I updated the service configurations and ensured that front-end and back-end origins matched. I made a JSON server to serve the front-end on http://localhost:3000/. I restarted my server and resubmitted my form and it worked.
+- I updated the service configurations and ensured that front-end and back-end origins matched. I made a JSON server to serve the front-end on http://localhost:3000/. I restarted my server and resubmitted my form and it worked.
 
 
 Task 2: Form Validation (JavaScript):
 
 To ensure data integrity and security when handling payment details, I used the following steps: 
 
-1. I implemented custom validation for form fields: card number, cardholder name, expiration date, and CVV. Validation function file (modules/validation.js). 
+- I implemented custom validation for form fields: card number, cardholder name, expiration date, and CVV. Validation function file (modules/validation.js). 
 
 Credit Card Validation: 
 
@@ -52,15 +52,15 @@ CVV Validation:
 
 - Ensured the CVV is exactly 3 digits long using regex.
 
-2. Used real-time validation triggered on input blur and submit events to improve user experience. 
+- Used real-time validation triggered on input blur and submit events to improve user experience. 
 
-3. Created Custom Error Message function which fires when validation functions fail. File route: modules/helpers.js
+- Created Custom Error Message function which fires when validation functions fail. File route: modules/helpers.js
 
-4. Empty String Error validation. Implemented the logic that if any input value is empty, the validation will fail and the form is not gonna be submitted. 
+- Empty String Error validation. Implemented the logic that if any input value is empty, the validation will fail and the form is not gonna be submitted. 
 
-5. Submitted data on a local server using fetch and async/await. Implemented appropriate headers and error handling. File route: modules/api.js
+- Submitted data on a local server using fetch and async/await. Implemented appropriate headers and error handling. File route: modules/api.js
 
-6. By using Iframe send cross-window messaging, which activates an alert window with an acknowledgment message. Can be found: modules/main.js, modules/confirmation.js. 
+- By using Iframe send cross-window messaging, which activates an alert window with an acknowledgment message. Can be found: modules/main.js, modules/confirmation.js. 
 
 
 Thought Process: 
@@ -102,19 +102,20 @@ Task 3: Payment Form Creation:
 
 File route: index.html, pages/confirmation.html
 
-- For the card form I used the <form> tag. Inside a form, I added a novalidate attribute, which allows us to implement custom validation and error handling. 
+- For the card form I used the form tag. Inside a form, I added a novalidate attribute, which allows us to implement custom validation and error handling. 
 
-- Each input I wrapped in a <div> with a <form-group> class. 
+- Each input I wrapped in a div with a form-group class. 
 
 - I used labels for accessibility for each input. I also used for attribute in a label which matches the ID of the particular input.
 
-- For credit card expiration dates I used <select> elements which made the interface more user-friendly and also helped when developing validation, making the validation date function less complex. 
+- For credit card expiration dates I used select elements which made the interface more user-friendly and also helped when developing validation, making the validation date function less complex. 
 
 - For the button I used type "submit", which triggers my submit event in the JavaScript file. 
 
 - For CVV input I used type "password" which provided security for the pin.
 
 - I add an Iframe to show a confirmation alert window to the user after successfully submitting a form.
+
 
 
 Task 4: CSS Styling:
@@ -151,4 +152,4 @@ Comman that allows only the owner to read and write in a file: chmod 600 filenam
 
 This is why the final result is going to be chmod 600 filename or chmod 700 filename. 
 
-To navigate through my files I will use cd, to list files in a folder - ls, check my current directory - pwd. # evgeniia_sindiukova_validation_challenge
+To navigate through my files I will use cd, to list files in a folder - ls, check my current directory - pwd.
