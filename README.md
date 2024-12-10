@@ -117,6 +117,7 @@ File route: index.html, pages/confirmation.html
 7. I add an Iframe to show a confirmation alert window to the user after successfully submitting a form.
 
 
+
 Task 4: CSS Styling:
 
 File route: styles/main.css
@@ -134,6 +135,8 @@ I am a CIBC client, so I used the main colours of the company I trust.
 5. I separated my components with comments and didn't mix them for better navigation across my file.
 
 6. I applied styles for error messages to indicate validation errors.
+
+
 
 
 Task 5: Linux:
