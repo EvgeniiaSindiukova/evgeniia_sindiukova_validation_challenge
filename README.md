@@ -114,7 +114,7 @@ File route: index.html, pages/confirmation.html
 
 - For CVV input I used type "password" which provided security for the pin.
 
-- I add an Iframe to show a confirmation alert window to the user after successfully submitting a form.
+- I added an Iframe to show a confirmation alert window to the user after successfully submitting a form.
 
 
 
